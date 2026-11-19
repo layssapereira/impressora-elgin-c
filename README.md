@@ -1,6 +1,6 @@
 Controle da Impressora Elgin em C
 
-Programa em linguagem C que controla a impressora térmica Elgin (i8 / i9) usando a biblioteca da própria Elgin, `E1_Impressora01.dll`.
+Programa em linguagem C que controla a impressora térmica Elgin (i8 / i9) usando a biblioteca da própria Elgin, `E1\\\_Impressora01.dll`.
 
 O que o programa faz
 
@@ -8,9 +8,9 @@ Ao abrir, o programa pede um login. Depois de entrar, mostra um menu que permite
 
 Requisitos
 
-- Windows
-- Compilador C de **64 bits** (ex.: TDM-GCC do Dev-C++ ou MSYS2 mingw64)
-- Impressora Elgin conectada via USB, com o driver instalado
+* Windows
+* Compilador C de **64 bits** (ex.: TDM-GCC do Dev-C++ ou MSYS2 mingw64)
+* Impressora Elgin conectada via USB, com o driver instalado
 
 Qual DLL usar
 
@@ -18,20 +18,22 @@ Este projeto usa a DLL de **64 bits (x64)**.
 
 A DLL precisa ter a mesma arquitetura do compilador:
 
-| Compilador | DLL |
-|---|---|
-| 64 bits (Dev-C++ com TDM-GCC 64, MSYS2 mingw64) | pasta **x64**  (a usada neste projeto) |
-| 32 bits (ex.: MinGW do Code::Blocks) | pasta **x86** |
+|Compilador|DLL|
+|-|-|
+|64 bits (Dev-C++ com TDM-GCC 64, MSYS2 mingw64)|pasta **x64**  (a usada neste projeto)|
+|32 bits (ex.: MinGW do Code::Blocks)|pasta **x86**|
 
 Arquivos necessários
 
 Todos precisam estar na mesma pasta:
 
 
+
 main.c
-E1_Impressora01.dll   (nome exato, sem "(2)" ou "_2")
+E1\_Impressora01.dll   (nome exato, sem "(2)" ou "\_2")
 XMLSAT.xml
-CANC_SAT.xml
+CANC\_SAT.xml
+
 
 
 Como compilar e executar
@@ -44,33 +46,35 @@ gcc main.c -o impressora.exe
 impressora.exe
 
 
+
 Login de teste
 
-Usuário: admin 
+Usuário: admin
 Senha: 1234
 
 São permitidas 3 tentativas. Depois disso, o programa é encerrado.
 
 Opções do menu
 
-| Opção | Ação |
-|---|---|
-| 1 | Configurar Conexão (tipo, modelo, porta e parâmetro) |
-| 2 | Abrir Conexão |
-| 3 | Fechar Conexão |
-| 4 | Imprimir Texto |
-| 5 | Imprimir QR Code |
-| 6 | Imprimir Código de Barras |
-| 7 | Imprimir XML SAT |
-| 8 | Imprimir XML Cancelamento SAT |
-| 9 | Abrir Gaveta (Elgin) |
-| 10 | Abrir Gaveta |
-| 11 | Emitir Sinal Sonoro |
-| 0 | Sair |
+|Opção|Ação|
+|-|-|
+|1|Configurar Conexão (tipo, modelo, porta e parâmetro)|
+|2|Abrir Conexão|
+|3|Fechar Conexão|
+|4|Imprimir Texto|
+|5|Imprimir QR Code|
+|6|Imprimir Código de Barras|
+|7|Imprimir XML SAT|
+|8|Imprimir XML Cancelamento SAT|
+|9|Abrir Gaveta (Elgin)|
+|10|Abrir Gaveta|
+|11|Emitir Sinal Sonoro|
+|0|Sair|
 
 A conexão padrão é **USB, modelo i9**. Para usar outro modelo (ex.: i8), use a opção 1 antes da opção 2.
 
 Autores
 
-- Layssa Gilo Pereira 1
-- Samuel Moura de Jesus 2
+* Layssa Gilo Pereira
+* Samuel Moura de Jesus
+
