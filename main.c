@@ -212,8 +212,9 @@ void imprimirTexto(void) {
 if (conexaoAberta) {
         char texto[1024];
         capturarEntrada("Digite o texto a ser impresso: ", texto, sizeof(texto));
-        int retorno = ImpressaoTexto(texto, 1, 8, 2);
-        if (retorno == 0) {
+        int retorno = ImpressaoTexto(texto, 1, 4, 0);
+        if (retorno > 0) {
+        	Corte(5);
             printf("Texto impresso com sucesso.\n");
         } else {
             printf("Erro ao imprimir texto. Codigo de erro: %d\n", retorno);
@@ -227,8 +228,9 @@ void imprimirQRCode(void) {
     if(conexaoAberta) {
         char dados[256];
         capturarEntrada("Digite os dados do QR Code: ", dados, sizeof(dados));
-        int retorno = ImpressaoQRCode(dados, 4, 2);
+        int retorno = ImpressaoQRCode(dados, 6, 4);
         if (retorno == 0) {
+        	Corte(5);
             printf("QR Code impresso com sucesso.\n");
         } else {
             printf("Erro ao imprimir QR Code. Codigo de erro: %d\n", retorno);
@@ -242,9 +244,10 @@ void imprimirQRCode(void) {
 void imprimirCodigoBarras(void) {
     if(conexaoAberta) {
         char dados[256];
-        capturarEntrada("Digite os dados do Codigo de Barras: ", dados, sizeof(dados));
-        int retorno = ImpressaoCodigoBarras(73, dados, 100, 2, 2);
+        //capturarEntrada("Digite os dados do Codigo de Barras: ", dados, sizeof(dados));
+        int retorno = ImpressaoCodigoBarras(8, "{A12345678912", 100, 2, 3);
         if (retorno == 0) {
+        	Corte(5);
             printf("Codigo de Barras impresso com sucesso.\n");
         } else {
             printf("Erro ao imprimir Codigo de Barras. Codigo de erro: %d\n", retorno);
@@ -265,6 +268,7 @@ void imprimirXMLSAT(void) {
         }
         int retorno = ImprimeXMLSAT(dadosXML, 0);
         if (retorno == 0) {
+        	Corte(5);
             printf("XML SAT impresso com sucesso.\n");
         } else {
             printf("Erro ao imprimir XML SAT. Codigo de erro: %d\n", retorno);
@@ -286,6 +290,7 @@ void imprimirXMLCancelamentoSAT(void) {
         }
         int retorno = ImprimeXMLCancelamentoSAT(dadosXML, ASS_QRCODE, 0);
         if (retorno == 0) {
+        	Corte(5);
             printf("XML de Cancelamento SAT impresso com sucesso.\n");
         } else {
             printf("Erro ao imprimir XML de Cancelamento SAT. Codigo de erro: %d\n", retorno);
@@ -299,7 +304,7 @@ void imprimirXMLCancelamentoSAT(void) {
 
 void abrirGavetaElgin(void) {
         if(conexaoAberta) {
-            int retorno = AbreGavetaElgin(1, 100, 100);
+            int retorno = AbreGavetaElgin(1, 5, 5);
             if (retorno == 0) {
                 printf("Gaveta aberta com sucesso.\n");
         } else {
@@ -313,7 +318,7 @@ void abrirGavetaElgin(void) {
 
 void abrirGaveta(void) {
     if(conexaoAberta) {
-        int retorno = AbreGaveta(1, 100, 100);
+        int retorno = AbreGaveta(1, 5, 5);
         if (retorno == 0) {
             printf("Gaveta aberta com sucesso.\n");
         } else {
@@ -326,7 +331,7 @@ void abrirGaveta(void) {
 
 void emitirSinalSonoro(void) {
     if(conexaoAberta) {
-        int retorno = SinalSonoro(50, 100, 100);
+        int retorno = SinalSonoro(1, 5, 5);
         if (retorno == 0) {
             printf("Sinal sonoro emitido com sucesso.\n");
         } else {
